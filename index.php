@@ -8,17 +8,17 @@ $data = file_get_contents('php://input');
 $data = json_decode($data, true);
 
 if (!isset($data)) {
-	echo 'No RooB28OT!';
+	echo 'No RooB28OT!2';
 	exit();
 }
 
 // Кнопки
 $buttons = [
 	'start_buttons' => [
-		['text' => 'Кнопка 1'],
-		['text' => 'Кнопка 2'],
-		['text' => 'Контакты'],
-		['text' => 'Фото'],
+	    ['7', '8', '9'],
+	    ['4', '5', '6'],
+	    ['1', '2', '3'],
+	    ['0']
 	]
 ];
 
@@ -43,10 +43,8 @@ switch ($data['message']['text']) {
 				'chat_id' => $data['message']['chat']['id'],
 				'text' => 'Что вы хотите заказать?',
 				'reply_markup' => [
-					'resize_keyboard' => true,
-					'keyboard' => [
-						['text' => 'НУ чо там?']
-					]
+					'resize_keyboard' => true
+					'keyboard' => $buttons['start_buttons']
 				]
 
 			]
