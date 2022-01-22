@@ -8,7 +8,7 @@ $data = file_get_contents('php://input');
 $data = json_decode($data, true);
 
 if (!isset($data)) {
-	echo 'No RooBOT!';
+	echo 'No RooB2OT!';
 	exit();
 }
 
@@ -41,20 +41,7 @@ switch ($data['message']['text']) {
 			'sendMessage', 
 			[
 				'chat_id' => $data['message']['chat']['id'],
-				'text' => 'Что вы хотите заказать?',
-				'reply_markup'  => [
-					'resize_keyboard' => true,
-					'keyboard' => [
-						[
-							['text' => 'Яблоки'],
-							['text' => 'Груши'],
-						],
-						[
-							['text' => 'Лук'],
-							['text' => 'Чеснок'],
-						]
-					]
-				]
+				'text' => 'Что вы хотите заказать?'
 			]
 		);
 
