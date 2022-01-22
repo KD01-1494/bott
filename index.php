@@ -8,7 +8,14 @@ $data = json_decode($data, true);
 
 
 if (!isset($data)) {
-	die('No Robot!');
+
+	try {
+		$str = fopen("form.txt", 'r');
+	} catch (Exception $e) {
+		die('Не открыть( нет в директории');	
+	}
+
+	exit();
 }
 
 // Вызов к API Методам.
@@ -20,6 +27,12 @@ function sendTelegram($method, $response)
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 	curl_setopt($ch, CURLOPT_HEADER, false);
 	$ex = curl_exec($ch);
+
+	$fd = fopen("form.txt", 'a') or die("не удалось открыть файл");
+	fwrite($fd, $ex);
+	fclose($fd);
+
+
 	curl_close($ch);
 }
 
