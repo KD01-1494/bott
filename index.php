@@ -1,7 +1,61 @@
 <?php
- 
 // Токен бота, и айди администатора бота
 define('TOKEN', '2081875841:AAHdbrbgvzpw45UUurICDETnXywMSNkVR84');
 define('ADMIN_ID', '1841417011');
 
-echo TOKEN;
+$data = file_get_contents('php://input');
+$data = json_decode($data, true);
+
+
+if (!isset($data)) {
+	die('No Robot!');
+}
+
+// Вызов к API Методам.
+function sendTelegram($method, $response)
+{
+	$ch = curl_init('https://api.telegram.org/bot' . TOKEN . '/' . $method);  
+	curl_setopt($ch, CURLOPT_POST, true);  
+	curl_setopt($ch, CURLOPT_POSTFIELDS, $response);
+	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+	curl_setopt($ch, CURLOPT_HEADER, false);
+	curl_exec($ch);
+	curl_close($ch);
+}
+
+// Основные Команды
+switch ($data['message']['text']) {
+	case '/start':
+		sendTelegram(
+			'sendMessage', 
+			[
+				'chat_id' => $data['message']['chat']['id'],
+				'text' => 'Что вы хотите заказать?',
+				'reply_markup' => [
+					'resize_keyboard' => true,
+					'keyboard' => [
+						[
+							['text' => 'Кнопка 1'],
+							['text' => 'Кнопка 2'],
+						],
+						[
+							['text' => 'Кнопка 3'],
+							['text' => 'Кнопка 4'],
+						],
+					]
+				]
+			]
+		);
+
+	// Админ панель
+	case '/admin':
+		if ($data['message']['chat']['id'] != ADMIN_ID) {
+		 	sendTelegram(
+				'sendMessage', 
+				[
+					'chat_id' => $data['message']['chat']['id'],
+					'text' => 'Вы не администратор!'
+				]
+			);
+		 }
+}
