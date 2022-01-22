@@ -19,7 +19,7 @@ function sendTelegram($method, $response)
 	curl_setopt($ch, CURLOPT_POSTFIELDS, $response);
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 	curl_setopt($ch, CURLOPT_HEADER, false);
-	curl_exec($ch);
+	$ex = curl_exec($ch);
 	curl_close($ch);
 }
 
@@ -36,12 +36,8 @@ switch ($data['message']['text']) {
 					'keyboard' => [
 						[
 							['text' => 'Кнопка 1'],
-							['text' => 'Кнопка 2'],
-						],
-						[
-							['text' => 'Кнопка 3'],
-							['text' => 'Кнопка 4'],
-						],
+							['text' => 'Кнопка 2']
+						]
 					]
 				]
 			]
