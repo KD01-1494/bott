@@ -36,7 +36,7 @@ function sendTelegram($method, $response)
 	curl_setopt($ch, CURLOPT_POSTFIELDS, $response);
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 	curl_setopt($ch, CURLOPT_HEADER, false);
-	$res = curl_exec($ch);
+	curl_exec($ch);
 	curl_close($ch);
 }
 
@@ -47,7 +47,10 @@ switch ($data['message']['text']) {
 			'sendMessage', 
 			[
 				'chat_id' => $data['message']['chat']['id'],
-				'text' => 'Хай!'
+				'text' => 'Привет',
+				'reply_markup' => [
+					'keyboard' => [$buttons['start_buttons']]
+				]
 
 			]
 		);
