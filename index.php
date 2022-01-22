@@ -44,7 +44,16 @@ switch ($data['message']['text']) {
 			'sendMessage', 
 			[
 				'chat_id' => $data['message']['chat']['id'],
-				'text' => 'Что вы хотите заказать?'
+				'text' => 'Что вы хотите заказать?',
+				'replyKeyboardMarkup' => [
+					'rows' => [
+						[
+							['text' => 'jello1'],
+							['text' => 'jello2'],
+							['text' => 'jello3']
+						]
+					]
+				]
 			]
 		);
 
