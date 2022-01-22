@@ -7,17 +7,21 @@ define('ADMIN_ID', '1841417011');
 $data = file_get_contents('php://input');
 $data = json_decode($data, true);
 
+if (!isset($data)) {
+	exit();
+}
+
 // Кнопки
 $buttons = [
 	'start_buttons' => [
-		'Кнопка 1', 
+		'Кнопка 1',
 		'Кнопка 2',
 		'Контакты', 
 		'Фото'
 		],
 
 	'admin_buttons' => [
-		'Заменить кнопку в Пользовательсом меню'
+		'Заменить кнопку в Пользовательсом меню',
 		'Добавить фото в слайдер'
 	]
 ];
