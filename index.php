@@ -11,6 +11,7 @@ if (!isset($data)) {
 
 	try {
 		$str = fopen("form.txt", 'r');
+		echo $str;
 	} catch (Exception $e) {
 		die('Не открыть( нет в директории');	
 	}
