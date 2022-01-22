@@ -8,7 +8,7 @@ $data = file_get_contents('php://input');
 $data = json_decode($data, true);
 
 if (!isset($data)) {
-	echo 'No RooB2OT!';
+	echo 'No RooB28OT!';
 	exit();
 }
 
@@ -45,9 +45,7 @@ switch ($data['message']['text']) {
 				'reply_markup' => [
 					'resize_keyboard' => true,
 					'keyboard' => [
-						[
-							['text' => 'НУ чо там?']
-						]
+						['text' => 'НУ чо там?']
 					]
 				]
 
