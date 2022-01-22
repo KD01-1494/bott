@@ -8,25 +8,19 @@ $data = file_get_contents('php://input');
 $data = json_decode($data, true);
 
 if (!isset($data)) {
-	echo 'No roBOT!';
+	echo 'No RoBOT!';
 	exit();
 }
 
 // Кнопки
 $buttons = [
 	'start_buttons' => [
-		'Кнопка 1',
-		'Кнопка 2',
-		'Контакты', 
-		'Фото'
-		],
-
-	'admin_buttons' => [
-		'Заменить кнопку в Пользовательсом меню',
-		'Добавить фото в слайдер'
+		['text' => 'Кнопка 1'],
+		['text' => 'Кнопка 2'],
+		['text' => 'Контакты'],
+		['text' => 'Фото'],
 	]
 ];
-
 
 // Вызов к API Методам.
 function sendTelegram($method, $response)
