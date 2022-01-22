@@ -1,14 +1,14 @@
 <?php
  
 // Токен бота, и айди администатора бота
-define('TOKEN', '5111256792:AAE8jVOPJ5rYzGV1ERqyZCeLlNhVZQe6JxY');
+define('TOKEN', '2081875841:AAHdbrbgvzpw45UUurICDETnXywMSNkVR84');
 define('ADMIN_ID', '1841417011');
 
 $data = file_get_contents('php://input');
 $data = json_decode($data, true);
 
 if (!isset($data)) {
-	echo 'No Robot!';
+	echo 'No roBOT!';
 	exit();
 }
 
