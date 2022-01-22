@@ -46,7 +46,6 @@ switch ($data['message']['text']) {
 				'chat_id' => $data['message']['chat']['id'],
 				'text' => 'Что вы хотите заказать?',
 				'reply_markup' => [
-					'resize_keyboard' => true,
 					'keyboard' => [[['text' => '33', 'request_contact' => true]]]
 				]
 			]
