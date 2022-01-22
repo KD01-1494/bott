@@ -45,9 +45,12 @@ switch ($data['message']['text']) {
 			[
 				'chat_id' => $data['message']['chat']['id'],
 				'text' => 'Что вы хотите заказать?',
-				'reply_markup' => [
-					'keyboard' => [[['text' => '33', 'request_contact' => true]]]
-				]
+				'reply_markup' => array(
+					'keyboard' => array(
+			            array(
+			                array('text' => '33', 'request_contact' => true),
+			        )),
+				)
 			]
 		);
 
