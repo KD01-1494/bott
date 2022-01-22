@@ -8,7 +8,7 @@ $data = file_get_contents('php://input');
 $data = json_decode($data, true);
 
 if (!isset($data)) {
-	echo 'No BOT!';
+	echo 'No Robot!';
 	exit();
 }
 
@@ -47,8 +47,7 @@ switch ($data['message']['text']) {
 			'sendMessage', 
 			[
 				'chat_id' => $data['message']['chat']['id'],
-				'text' => 'Хай!',
-				'reply_markup' => $buttons['start_buttons']
+				'text' => 'Хай!'
 
 			]
 		);
