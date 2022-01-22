@@ -1,6 +1,4 @@
 <?php
-require_once "vendor/autoload.php";
-
 echo "228 bogdan bogom dan";
 
 // Токен бота, и айди администатора бота
