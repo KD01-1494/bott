@@ -47,12 +47,7 @@ switch ($data['message']['text']) {
 				'text' => 'Что вы хотите заказать?',
 				'reply_markup' => [
 					'resize_keyboard' => true,
-					'keyboard' => [
-						[
-							['text' => 'Кнопка 1'],
-							['text' => 'Кнопка 2']
-						]
-					]
+					'keyboard' => [[['text' => '33', 'request_contact' => true]]]
 				]
 			]
 		);
