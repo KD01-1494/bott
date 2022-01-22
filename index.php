@@ -47,11 +47,7 @@ switch ($data['message']['text']) {
 				'text' => 'Что вы хотите заказать?',
 				'replyKeyboardMarkup' => [
 					'rows' => [
-						[
-							['text' => 'jello1'],
-							['text' => 'jello2'],
-							['text' => 'jello3']
-						]
+						['text' => 'jello1'],
 					]
 				]
 			]
